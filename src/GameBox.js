@@ -18,6 +18,8 @@ const GameBox = (props) => {
 
 
     const [isSuccess, setisSusccess] = useState();
+    const[isFailure, setisFailure] = useState();
+
     const [displayCount, setdisplayCount] = useState();
 
     let index = 1, rowIndex = 0, trialCount = 0;
@@ -161,6 +163,8 @@ const GameBox = (props) => {
                 if (count === 5) {
                     setisSusccess(true);
                     setdisplayCount(trialCount);
+                } else if(trialCount === 5){
+                    setisFailure(true);
                 }
                 else {
 
@@ -219,7 +223,7 @@ const GameBox = (props) => {
                 <input type="text" id="25" className="box" disabled={true}></input>
             </div>
             {
-                isSuccess ? <p> You got it right!!! {displayCount}/5</p> :
+                isSuccess ? <p> You got it right!!! {displayCount}/5</p> : isFailure ? <p> Better luck next time !!</p> :
                     <button type='button' className="submitWord" onClick={handleSubmit}>Submit</button>
             }
 
