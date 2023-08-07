@@ -19,7 +19,8 @@ let notFound = {
 
 app.get("/message", (req, res) => {
     //res.json({ message: "Hello from server!" });
-    res.send({"1" : parsedData[0]});
+    let randomIndex = Math.floor(Math.random() * 5757);
+    res.send({"1" : parsedData[randomIndex]});
     //res.send(message);
 });
 
@@ -51,20 +52,3 @@ app.get("/validate",(req,res) => {
   else
     res.send(notFound);
 });
-
-function stringify(obj) {
-  let cache = [];
-  let str = JSON.stringify(obj, function(key, value) {
-    if (typeof value === "object" && value !== null) {
-      if (cache.indexOf(value) !== -1) {
-        // Circular reference found, discard key
-        return;
-      }
-      // Store value in our collection
-      cache.push(value);
-    }
-    return value;
-  });
-  cache = null; // reset the cache
-  return str;
-}
