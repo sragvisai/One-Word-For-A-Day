@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/One-Word-For-A-Day/static/css/main.a60f826b.css",
+    "main.js": "/One-Word-For-A-Day/static/js/main.778f1b93.js",
+    "static/js/787.28cb0dcd.chunk.js": "/One-Word-For-A-Day/static/js/787.28cb0dcd.chunk.js",
+    "static/media/logo.svg": "/One-Word-For-A-Day/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/One-Word-For-A-Day/index.html",
+    "main.a60f826b.css.map": "/One-Word-For-A-Day/static/css/main.a60f826b.css.map",
+    "main.778f1b93.js.map": "/One-Word-For-A-Day/static/js/main.778f1b93.js.map",
+    "787.28cb0dcd.chunk.js.map": "/One-Word-For-A-Day/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a60f826b.css",
+    "static/js/main.778f1b93.js"
+  ]
+}
