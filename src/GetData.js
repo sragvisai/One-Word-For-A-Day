@@ -5,29 +5,32 @@ const GetData = () => {
 
     console.log("GET DATA initialized");
 
-    const [message,setMessage] = useState("");
+    const [message, setMessage] = useState("");
+    const [showBoxes, setshowBoxes] = useState(false);
 
     let ReceivedData;
-        useEffect(()=>{
-            fetch("http://localhost:8000/message")
-              .then((res) => res.json())
-              .then((data) => {
-                  ReceivedData = data;
-                  console.log("Received "+JSON.stringify(ReceivedData));
-                  setMessage(ReceivedData["1"]);
-              })
-              
-          }, []);
+    useEffect(() => {
+        fetch("http://localhost:8000/message")
+            .then((res) => res.json())
+            .then((data) => {
+                ReceivedData = data;
+                console.log("Received " + JSON.stringify(ReceivedData));
+                setMessage(ReceivedData);
+                setshowBoxes(true);
+            })
+
+    }, []);
 
     return (
         <div className='main'>
-            <div className='title'>
-                {/* <h1>{message}</h1> */}
-            </div>
 
-           <GameBox message = {message}></GameBox>
+            { showBoxes ? (
+                <GameBox message={message}></GameBox>) : (
+                <div></div>
+            )
+            }
         </div>
-        
+
     )
 
 

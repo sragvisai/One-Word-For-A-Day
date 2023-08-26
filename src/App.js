@@ -34,6 +34,7 @@ function App() {
           </Routes> */}
 
           {/* <p><Link to="/login">Login</Link></p> */}
+          
           <GetData></GetData>
             
           </div>

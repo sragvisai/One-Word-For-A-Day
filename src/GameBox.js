@@ -7,8 +7,12 @@ let reachedRowEnd = false;
 const GameBox = (props) => {
 
     console.log("Initializing gameBox " + JSON.stringify(props));
+ 
+    let message = props["message"]["1"];
+    let hintPOS = props["message"]["2"]["pos"];
+    let hintDef = props["message"]["2"]["def"];
 
-    let message = props.message;
+    console.log("Message "+message+" "+hintPOS+" "+hintDef);
 
     //splitting the message into characters
 
@@ -19,13 +23,13 @@ const GameBox = (props) => {
 
     const [isSuccess, setisSusccess] = useState();
     const[isFailure, setisFailure] = useState();
-
+    const[showHint,setShowHint] = useState(true);
     const [displayCount, setdisplayCount] = useState();
 
     let index = 1, rowIndex = 0, trialCount = 0;
     // isSuccess = false;
 
-    console.log("Initializing gameBox " + JSON.stringify(props) + " " + rowIndex + " " + isSuccess + " " + index);
+    //console.log("Initializing gameBox " + JSON.stringify(props) + " " + rowIndex + " " + isSuccess + " " + index);
 
     const keyPressed = (e) => {
 
@@ -159,14 +163,19 @@ const GameBox = (props) => {
                     fifth.classList.add("yellow");
                 } else
                     fifth.className = "box red";
-
+                
                 if (count === 5) {
                     setisSusccess(true);
                     setdisplayCount(trialCount);
-                } else if(trialCount === 5){
+                }
+                 else if(trialCount === 5){
                     setisFailure(true);
                 }
                 else {
+
+                    if(trialCount > 2){
+                        document.getElementById("hint").style.display="flex";
+                    }
 
                     let nextRow = "row" + String(rowIndex + 1);
                     console.log("Adding the visibility " + nextRow);
@@ -222,6 +231,12 @@ const GameBox = (props) => {
                 <input type="text" id="24" className="box" disabled={true}></input>
                 <input type="text" id="25" className="box" disabled={true}></input>
             </div>
+            {
+                showHint ? <div id="hint" className="hintClass">
+                    <h3>Def: {hintDef}</h3>
+                    <p>({hintPOS})</p>
+                </div> : <div></div>
+            }
             {
                 isSuccess ? <p> You got it right!!! {displayCount}/5</p> : isFailure ? <p> Better luck next time !!</p> :
                     <button type='button' className="submitWord" onClick={handleSubmit}>Submit</button>
