@@ -68,6 +68,11 @@ input {
   width: 90%;
   margin: auto;
   text-align: center;
+  display: flex;
+}
+
+.rows{
+  width: 80%;
 }
 
 .green {
@@ -136,17 +141,8 @@ input {
 }
 
 .hintClass {
-  width: auto;
-  right: 10%;
-  aspect-ratio: 1/1;
-  position: absolute;
   background-color: gold;
   border-radius: 50%;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  display: none;
 }
 
 .hintClass h3{
@@ -159,4 +155,118 @@ input {
   font-size: 9px;
   margin: 0px;
   padding: 0px;
+}
+
+.parentHintClass {
+  width: 20%;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.gameBox {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.01);
+  padding: 20px;
+  text-align: center;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.box {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submitWord {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.submitWord:hover {
+  background-color: #45a049;
+}
+
+.parentHintClass {
+  display: none;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.hintClass {
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+  text-align: center;
+}
+
+.startPlaying {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.startPlaying:hover {
+  background-color: #2980b9;
+}
+
+.alreadyClicked {
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.alreadyClicked p {
+  font-size: 18px;
+  margin-bottom: 10px;
 }

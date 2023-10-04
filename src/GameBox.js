@@ -174,7 +174,9 @@ const GameBox = (props) => {
                 else {
 
                     if(trialCount > 2){
-                        document.getElementById("hint").style.display="flex";
+                        document.getElementsByClassName("rows")[0].style.width="80%";
+                        document.getElementsByClassName("parentHintClass")[0].style.display="block";
+                        document.getElementById("hint").style.display="block";
                     }
 
                     let nextRow = "row" + String(rowIndex + 1);
@@ -192,6 +194,7 @@ const GameBox = (props) => {
 
     return (
         <div className='gameBox' id="boxplace">
+            <div className="rows">
             <div className="row" id="row0">
                 <input type="text" id="1" className="box" readOnly={true} disabled={true}></input>
                 <input type="text" id="2" className="box" disabled={true}></input>
@@ -232,15 +235,17 @@ const GameBox = (props) => {
                 <input type="text" id="25" className="box" disabled={true}></input>
             </div>
             {
-                showHint ? <div id="hint" className="hintClass">
-                    <h3>Def: {hintDef}</h3>
-                    <p>({hintPOS})</p>
-                </div> : <div></div>
-            }
-            {
                 isSuccess ? <p> You got it right!!! {displayCount}/5</p> : isFailure ? <p> Better luck next time !!</p> :
                     <button type='button' className="submitWord" onClick={handleSubmit}>Submit</button>
             }
+            </div>
+            {
+                showHint ? <div className="parentHintClass"><div id="hint" className="hintClass">
+                    <h3>Def: {hintDef}</h3>
+                    <p>({hintPOS})</p>
+                </div> </div> : <div></div>
+            }
+            
 
 
         </div>
